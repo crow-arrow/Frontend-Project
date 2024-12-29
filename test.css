@@ -1,0 +1,142 @@
+.header-menu {
+    border-radius: 0.5rem;
+    box-shadow: inset 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.25);
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+  
+  .header-menu-list {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header-menu-item {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header-menu-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-light);
+    height: 38px;
+    text-decoration: none;
+    font-family: var(--font-family-accent);
+    font-weight: var(--font-weight-accent);
+    font-size: 1vw;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+  }
+  
+  .header-menu-link:hover {
+      color: #ff6900;
+  }
+  
+  .header-menu-link:focus {
+    outline: none;
+    color: #ff6900;
+  }
+  
+  @media (min-width: 45rem) {
+    .header-menu-list {
+      justify-content: space-between;
+    }
+    
+    .header-menu > ol:hover > li:first-child > a, 
+    .header-menu > ol:focus-within > li:first-child > a {
+      opacity: 0.6;
+    }
+    
+    .header-menu-item {
+      flex: 1 1 0;
+    }
+  
+    /* Изменённая часть с псевдоэлементом */
+    .header-menu-item:last-child:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin-right: -50%;
+      box-shadow: var(--box-shadow-inset-2);
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 0.5rem;
+      z-index: 0;
+      transition: 350ms cubic-bezier(1, 0.49, 0.09, 1.29) all;
+      pointer-events: none;
+    }
+  }
+  
+  .header-menu > ol > li:first-child:nth-last-child(5) ~ li:last-child:after {
+    right: 450%;
+  }
+  .header-menu > ol > li:first-child:nth-last-child(5):nth-child(2):hover ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5):nth-child(2):focus ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5):nth-child(2):focus-within ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(2):hover ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(2):focus ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(2):focus-within ~ li:last-child:after {
+    right: 350%;
+  }
+  .header-menu > ol > li:first-child:nth-last-child(5):nth-child(3):hover ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5):nth-child(3):focus ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5):nth-child(3):focus-within ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(3):hover ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(3):focus ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(3):focus-within ~ li:last-child:after {
+    right: 250%;
+  }
+  .header-menu > ol > li:first-child:nth-last-child(5):nth-child(4):hover ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5):nth-child(4):focus ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5):nth-child(4):focus-within ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(4):hover ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(4):focus ~ li:last-child:after, .header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(4):focus-within ~ li:last-child:after {
+    right: 150%;
+  }
+  .header-menu > ol > li:first-child:nth-last-child(5):last-child:hover:after, .header-menu > ol > li:first-child:nth-last-child(5):last-child:focus:after, .header-menu > ol > li:first-child:nth-last-child(5):last-child:focus-within:after, .header-menu > ol > li:first-child:nth-last-child(5) ~ li:last-child:hover:after, .header-menu > ol > li:first-child:nth-last-child(5) ~ li:last-child:focus:after, .header-menu > ol > li:first-child:nth-last-child(5) ~ li:last-child:focus-within:after {
+    right: 50%;
+  }
+  .header-menu > ol > li:first-child > a {
+    opacity: 1;
+  }
+  
+  @media (max-width: 48rem) {
+    .header-menu {
+      display: none;
+    }
+  }
+  
+  
+
+  .header-menu > ol > li:first-child:nth-last-child(5) ~ 
+li:last-child:after {
+  right: 450%;
+}
+.header-menu > ol > li:first-child:nth-last-child(5):nth-child(2):hover ~ li:last-child:after, 
+.header-menu > ol > li:first-child:nth-last-child(5):nth-child(2):focus ~ li:last-child:after, 
+.header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(2):hover ~ li:last-child:after, 
+.header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(2):focus ~ li:last-child:after, 
+.header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(2):focus-within ~ li:last-child:after {
+  right: 350%;
+}
+.header-menu > ol > li:first-child:nth-last-child(5):nth-child(3):hover ~ li:last-child:after, 
+.header-menu > ol > li:first-child:nth-last-child(5):nth-child(3):focus ~ li:last-child:after, 
+.header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(3):hover ~ li:last-child:after, 
+.header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(3):focus ~ li:last-child:after, 
+.header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(3):focus-within ~ li:last-child:after {
+  right: 250%;
+}
+.header-menu > ol > li:first-child:nth-last-child(5):nth-child(4):hover ~ li:last-child:after, 
+.header-menu > ol > li:first-child:nth-last-child(5):nth-child(4):focus ~ li:last-child:after, 
+.header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(4):hover ~ li:last-child:after, 
+.header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(4):focus ~ li:last-child:after, 
+.header-menu > ol > li:first-child:nth-last-child(5) ~ li:nth-child(4):focus-within ~ li:last-child:after {
+  right: 150%;
+}
+.header-menu > ol > li:first-child:nth-last-child(5):last-child:hover:after, 
+.header-menu > ol > li:first-child:nth-last-child(5):last-child:focus:after, 
+.header-menu > ol > li:first-child:nth-last-child(5) ~ li:last-child:hover:after, 
+.header-menu > ol > li:first-child:nth-last-child(5) ~ li:last-child:focus:after, 
+.header-menu > ol > li:first-child:nth-last-child(5) ~ li:last-child:focus-within:after {
+  right: 50%;
+}
+.header-menu > ol > li:first-child > a {
+  opacity: 1;
+}

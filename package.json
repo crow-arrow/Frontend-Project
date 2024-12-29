@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "scss": "^0.2.4"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5"
+  }
+}

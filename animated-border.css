@@ -1,0 +1,93 @@
+@property --a {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.portfolio-card {
+  display: grid;
+  gap: 40px max(40px, 10%);
+  grid-template-columns: auto 50%;
+  position: relative;
+  border-radius: 40px; /* Скругление углов */
+  background: var(--color-dark);
+  z-index: 1;
+}
+
+.animate-gradient {
+  position: relative;
+  border-radius: var(--border-radius);
+  z-index: 1;
+}
+
+.animate-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* Задаем толщину границы */
+  border-radius: inherit; /* Наследуем скругление углов */
+  background: conic-gradient(
+    from var(--a),
+    #000000,
+    #ff6900
+  );
+  z-index: -1;
+  animation: rotate 2s linear infinite;
+
+  /* Создаем эффект рамки с прозрачностью внутри */
+  -webkit-mask: 
+    linear-gradient(var(--color-dark) 0 0) content-box, 
+    linear-gradient(var(--color-dark) 0 0);
+  -webkit-mask-composite: xor; /* Вырезаем внутреннюю часть */
+  mask-composite: exclude;
+  padding: 0.5em; /* Толщина рамки */
+  box-sizing: border-box;
+}
+
+@keyframes rotate {
+  to {
+    --a: 1turn;
+  }
+}
+
+/* 1 */
+
+@property --a {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.hero-section {
+  position: relative;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* Задаем толщину границы */
+  border-radius: inherit; /* Наследуем скругление углов */
+  background: conic-gradient(
+    from var(--a),
+    #000000, #000000, #000000, #ff6900,
+    #000000, #000000, #000000, #ff6900, #000000
+  );
+  z-index: -1;
+  animation: rotate 6s linear infinite;
+
+  /* Создаем эффект рамки с прозрачностью внутри */
+  -webkit-mask: 
+    linear-gradient(var(--color-dark) 0 0) content-box, 
+    linear-gradient(var(--color-dark) 0 0);
+  -webkit-mask-composite: xor; /* Вырезаем внутреннюю часть */
+  mask-composite: exclude;
+  padding: 0.2em; /* Толщина рамки */
+  box-sizing: border-box;
+}
+
+@keyframes rotate {
+  to {
+    --a: 1turn;
+  }
+}
