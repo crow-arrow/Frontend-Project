@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".portfolio-card").forEach((item) => {
       ScrollTrigger.create({
         trigger: item,
-        // markers: true, // Удалите на продакшене
         start: "center 80%",
         end: "center 25%",
         onEnter: () => item.classList.add("animate-gradient"),
@@ -87,33 +86,3 @@ function updateActiveState(sectionId) {
     }
   });
 }
-
-// Добавляем CSS через JavaScript
-// const style = document.createElement('style');
-// style.textContent = `
-//   .header-menu-item.active ~ li:last-child:after {
-//     right: auto;
-//   }
-  
-//   .header-menu-item:nth-child(1).active ~ li:last-child:after {
-//     right: 450%;
-//   }
-  
-//   .header-menu-item:nth-child(2).active ~ li:last-child:after {
-//     right: 350%;
-//   }
-  
-//   .header-menu-item:nth-child(3).active ~ li:last-child:after {
-//     right: 250%;
-//   }
-  
-//   .header-menu-item:nth-child(4).active ~ li:last-child:after {
-//     right: 150%;
-//   }
-  
-//   .header-menu-item:nth-child(5).active ~ li:last-child:after {
-//     right: 50%;
-//   }
-// `;
-// document.head.appendChild(style);
-
