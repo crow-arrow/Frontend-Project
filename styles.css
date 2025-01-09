@@ -23,11 +23,20 @@
 }
 
 @font-face {
-   font-family: 'M PLUS Code Latin';
-   src: url(./fonts/MPLUSCodeLatin-Light.woff2) format('woff2');
-   font-weight: 200;
-   font-style: normal;
-   font-display: swap;
+  font-family: 'Material Symbols Outlined 28pt';
+  src: url('./fonts/MaterialSymbolsOutlined28pt-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(./fonts/MaterialSymbolsOutlined28pt-Regular.woff2) format('woff2');
 }
  
 html, body, div, span, applet, object, iframe, 
@@ -146,6 +155,10 @@ table {
   :root {
       --section-padding-y:30px
   }
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined 28pt';
 }
 
 html {

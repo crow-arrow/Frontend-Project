@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="./menu.css">
         <link rel="stylesheet" href="./animated-border.css">
         <link rel="stylesheet" href="./popup.css">
+
         <script src="./myjs.js" defer></script>
         <script src="./popup.js" defer></script>
         <header class="header">
@@ -487,17 +488,31 @@
             <div class="pop_up hiden">
                 <div class="pop_up_container">
                     <div class="pop_up_body">
-                        <p>Let me know if you need a profetional Web-service</p>
-                        <form class="form grid-container" action="">
-                            <input class="input item1" id="fname" type="text" name="fname" placeholder="First name" required>
-                            <label for="fname">First name:</label>
-                            <input class="input item2" id="lname" type="text" name="lname" placeholder="Last name" required>
-                            <label for="lname">Last name:</label>
-                            <input class="input item3" id="email" type="email" name="email" placeholder="Email address" required>
-                            <label for="email">Email:</label>
-                            <input class="input item4" id="phone" type="tel" name="tel " placeholder="Phone number">
-                            <label for="phone">Phone number:</label>
-                            <textarea class="input item5" name="input item5" id="description" placeholder="Description"></textarea>
+                        <p>Feel free to reach out if you require expert web services</p>
+                        <form class="form grid-container" id="form" action="">
+                            <div class="textbox item1">
+                                <input class="input" id="fname" type="text" name="fname" placeholder="First name" enterkeyhint="go" required>
+                                <span class="asterix">*</span>
+                                <label for="fname">First name:</label>
+                            </div>
+                            <div class="textbox item2">
+                                <input class="input" id="lname" type="text" name="lname" placeholder="Last name" required>
+                                <span class="asterix">*</span>
+                                <label for="lname">Last name:</label>
+                            </div>
+                            <div class="textbox item3">
+                                <input class="input" id="email" type="email" name="email" placeholder="Email address" required>
+                                <span class="asterix">*</span>
+                                <label for="email">Email:</label>
+                            </div>
+                            <div class="textbox item4">
+                                <input class="input" id="phone" type="tel" name="tel" placeholder="Phone number">
+                                <label for="phone">Phone number:</label>
+                            </div>
+                            <div class="textbox item5">
+                                <textarea class="textarea" name="describtion" id="description" placeholder="Description" required></textarea>
+                                <span class="asterix">*</span>
+                            </div>
                             <button class="submit button item6">Send message</button>
                         </form>
                         <div class="pop_up_close">&#10006</div>
