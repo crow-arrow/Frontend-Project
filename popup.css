@@ -1,0 +1,92 @@
+.pop_up {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(100, 100, 100, 0.7);
+    z-index: 100;
+}
+
+.pop_up_container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.pop_up_body {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    width: 600px;
+    background-color: #002026;
+    border-radius: var(--border-radius);
+    padding: 20px;
+}
+
+.pop_up_body p {
+    font-family: var(--font-family-accent);
+    font-weight: 300;
+    font-size: 2rem;
+    margin: 50px 0;
+    text-align: center;
+    color: var(--color-accent);
+}
+
+.pop_up_body input, textarea {
+    padding: 10px 20px;
+    border: var(--border);
+    border-radius: var(--border-radius-button);
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+
+.pop_up_body label {
+    display: none;
+}
+
+.submit {
+    margin-block: 50px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: [first] 1fr [second] 1fr;
+    gap: 25px;
+    width: 100%;
+}
+
+.item5 {
+    grid-column: span 2;
+}
+
+.item6 {
+    translate: 150px;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-light);
+    background-color: var(--color-accent);
+}
+
+.pop_up_body input.active {
+    border: var(--border);
+    border-color: var(--color-accent);
+}
+
+.pop_up_close {
+    position: absolute;
+    top: 1.5vh;
+    right: 2vh;
+    border-radius: 50%;
+    text-align: center;
+    color: var(--color-light);
+    cursor: pointer;
+}
+
+.hiden {
+    display: none;
+}

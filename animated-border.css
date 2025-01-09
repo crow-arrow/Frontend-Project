@@ -4,44 +4,6 @@
   inherits: false;
 }
 
-.portfolio-card {
-  display: grid;
-  gap: 40px max(40px, 10%);
-  grid-template-columns: auto 50%;
-  position: relative;
-  border-radius: 40px; /* Скругление углов */
-  background: var(--color-dark);
-  z-index: 1;
-}
-
-.animate-gradient {
-  position: relative;
-  border-radius: var(--border-radius);
-  z-index: 1;
-}
-
-.animate-gradient::before {
-  content: "";
-  position: absolute;
-  inset: 0; /* Задаем толщину границы */
-  border-radius: inherit; /* Наследуем скругление углов */
-  background: conic-gradient(
-    from var(--a),
-    #000000,
-    #ff6900
-  );
-  z-index: -1;
-  animation: rotate 2s linear infinite;
-
-  /* Создаем эффект рамки с прозрачностью внутри */
-  -webkit-mask: 
-    linear-gradient(var(--color-dark) 0 0) content-box, 
-    linear-gradient(var(--color-dark) 0 0);
-  -webkit-mask-composite: xor; /* Вырезаем внутреннюю часть */
-  mask-composite: exclude;
-  padding: 0.5em; /* Толщина рамки */
-  box-sizing: border-box;
-}
 
 @keyframes rotate {
   to {
@@ -57,10 +19,32 @@
   inherits: false;
 }
 
+.hero__inner {
+  columns: 2;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
 .hero-section {
+  width: 40vw;
+  min-width: 300px;
+  max-width: 600px;
+  height: auto;
+  flex-shrink: 0;
   position: relative;
   border-radius: 50%;
-  z-index: 1;
+  box-shadow: var(--box-shadow-inset);
+  overflow: hidden;
+  filter: drop-shadow(var(--box-shadow));
+}
+
+.profile-picture {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  
+  /* mix-blend-mode: lighten; */
 }
 
 .hero-section::before {
@@ -73,7 +57,7 @@
     #000000, #000000, #000000, #ff6900,
     #000000, #000000, #000000, #ff6900, #000000
   );
-  z-index: -1;
+  /* z-index: -1; */
   animation: rotate 6s linear infinite;
 
   /* Создаем эффект рамки с прозрачностью внутри */

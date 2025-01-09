@@ -11,7 +11,10 @@
 
         <link rel="stylesheet" href="./styles.css">
         <link rel="stylesheet" href="./menu.css">
+        <link rel="stylesheet" href="./animated-border.css">
+        <link rel="stylesheet" href="./popup.css">
         <script src="./myjs.js" defer></script>
+        <script src="./popup.js" defer></script>
         <header class="header">
             <div class="header__inner container">
                 <a class="header-logo" href="/" aria-label="Home Page">
@@ -37,8 +40,10 @@
                     </ol>
                 </nav>
                 <div class="header-actions">
-                    <button class="header-button button" type="button">Hire me</button>
-                    <button class="header-burger-button" type="button">
+                    <button class="header-button button" type="button">
+                        <a href="#" id="open_pop_up" class="header-button-link">Hire me</a>
+                    </button>
+                    <button class="header-burger-button button" type="button">
                         <svg width="37" height="37" viewBox="0 0 37 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line x1="4.125" y1="29.5" x2="33.125" y2="29.5" stroke="#eaeaea" stroke-width="7" stroke-linecap="round"/>
                             <line x1="4.125" y1="16.5" x2="33.125" y2="16.5" stroke="#eaeaea" stroke-width="7" stroke-linecap="round"/>
@@ -59,7 +64,7 @@
                                 <div class="live-typing">Hi! My name is Amal Yuldashev. I am a frontend developer.</div>
                                 <div class="live-typing">My transformation: How I went from sport to creating a digital world.</div>
                             </h1>
-                            <button class="check-button button">Download CV</button>
+                            <button class="check-button button" id="downloadCV">Download CV</button>
                         </div>
                         <div class="hero-section">
                             <img class="profile-picture" src="./Images/profile.svg" alt="Profile picture" width="500" height="500" loading="lazy">
@@ -478,6 +483,26 @@
                         </div>
                     </div>
                 </section>
+            </div>
+            <div class="pop_up hiden">
+                <div class="pop_up_container">
+                    <div class="pop_up_body">
+                        <p>Let me know if you need a profetional Web-service</p>
+                        <form class="form grid-container" action="">
+                            <input class="input item1" id="fname" type="text" name="fname" placeholder="First name" required>
+                            <label for="fname">First name:</label>
+                            <input class="input item2" id="lname" type="text" name="lname" placeholder="Last name" required>
+                            <label for="lname">Last name:</label>
+                            <input class="input item3" id="email" type="email" name="email" placeholder="Email address" required>
+                            <label for="email">Email:</label>
+                            <input class="input item4" id="phone" type="tel" name="tel " placeholder="Phone number">
+                            <label for="phone">Phone number:</label>
+                            <textarea class="input item5" name="input item5" id="description" placeholder="Description"></textarea>
+                            <button class="submit button item6">Send message</button>
+                        </form>
+                        <div class="pop_up_close">&#10006</div>
+                    </div>
+                </div>
             </div>
             <footer class="footer container" id="contact">
                 <div class="footer__inner card card--hoverable">

@@ -37,7 +37,7 @@
   text-decoration: none;
   font-family: var(--font-family-accent);
   font-weight: var(--font-weight-accent);
-  font-size: 1vw;
+  font-size: max(1vw, 14px);
   letter-spacing: 1.2px;
   white-space: nowrap;
 }
