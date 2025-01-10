@@ -1,35 +1,35 @@
 @font-face {
-    font-family:  "Rubik";
-    src: url(./fonts/Rubik-Light.woff2) format('woff2');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap; 
+  font-family:  "Rubik";
+  src: url(./fonts/Rubik-Light.woff2) format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap; 
 }
 
 @font-face {
-   font-family: 'Rubik';
-   src: url(./fonts/Rubik-Bold.woff2) format('woff2');
-   font-weight: bold;
-   font-style: normal;
-   font-display: swap;
+  font-family: 'Rubik';
+  src: url(./fonts/Rubik-Bold.woff2) format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-   font-family: 'M PLUS Code Latin';
-   src: url(./fonts/MPLUSCodeLatin-Thin.woff2) format('woff2');
-   font-weight: 100;
-   font-style: normal;
-   font-display: swap;
+  font-family: 'M PLUS Code Latin';
+  src: url(./fonts/MPLUSCodeLatin-Thin.woff2) format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-   font-family: 'M PLUS Code Latin';
-   src: url(./fonts/MPLUSCodeLatin-Light.woff2) format('woff2');
-   font-weight: 200;
-   font-style: normal;
-   font-display: swap;
+  font-family: 'M PLUS Code Latin';
+  src: url(./fonts/MPLUSCodeLatin-Light.woff2) format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
- 
+
 html, body, div, span, applet, object, iframe, 
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -185,6 +185,17 @@ a {
 b {
   font-family: "MPLUSCodeLatin" sans-serif;
   font-weight: bold;
+}
+
+.accent-color, 
+.link-accent {
+  color: var(--color-accent);
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.link-accent:hover {
+  transform: translateY(-2px);
 }
 
 .container {
@@ -387,8 +398,8 @@ h2, h3, h4, h5, h6 {
 .header-logo {
   display: inline-flex;
   align-items: center;
- }
- 
+}
+
 .header-logo:hover {
   animation: zoom-in;
   scale: 110%;
@@ -886,14 +897,6 @@ h2, h3, h4, h5, h6 {
   --gapX: 16px;
   --gapY: 8px;
 }
-
-/* .social-list {
-  justify-content: end;
-}
-
-.copyright {
-  text-align: end;
-} */
 
 .social__link {
   --size: 64px;
