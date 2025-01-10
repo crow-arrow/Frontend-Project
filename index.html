@@ -11,7 +11,11 @@
 
         <link rel="stylesheet" href="./styles.css">
         <link rel="stylesheet" href="./menu.css">
+        <link rel="stylesheet" href="./animated-border.css">
+        <link rel="stylesheet" href="./popup.css">
+
         <script src="./myjs.js" defer></script>
+        <script src="./popup.js" defer></script>
         <header class="header">
             <div class="header__inner container">
                 <a class="header-logo" href="/" aria-label="Home Page">
@@ -37,8 +41,10 @@
                     </ol>
                 </nav>
                 <div class="header-actions">
-                    <button class="header-button button" type="button">Hire me</button>
-                    <button class="header-burger-button" type="button">
+                    <button class="header-button button" type="button">
+                        <a href="#" id="open_pop_up" class="header-button-link">Hire me</a>
+                    </button>
+                    <button class="header-burger-button button" type="button">
                         <svg width="37" height="37" viewBox="0 0 37 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line x1="4.125" y1="29.5" x2="33.125" y2="29.5" stroke="#eaeaea" stroke-width="7" stroke-linecap="round"/>
                             <line x1="4.125" y1="16.5" x2="33.125" y2="16.5" stroke="#eaeaea" stroke-width="7" stroke-linecap="round"/>
@@ -59,7 +65,7 @@
                                 <div class="live-typing">Hi! My name is Amal Yuldashev. I am a frontend developer.</div>
                                 <div class="live-typing">My transformation: How I went from sport to creating a digital world.</div>
                             </h1>
-                            <button class="check-button button">Download CV</button>
+                            <button class="check-button button" id="downloadCV">Download CV</button>
                         </div>
                         <div class="hero-section">
                             <img class="profile-picture" src="./Images/profile.svg" alt="Profile picture" width="500" height="500" loading="lazy">
@@ -365,15 +371,43 @@
                                             <div class="stack">
                                                 <ul class="stack__list flow">
                                                     <li class="stack__item">
-                                                        <img class="stack__image" src="./icons/174881.png" alt="WordPress" title="WordPress" weight="40" height="40"
+                                                        <img class="stack__image" src="./icons/microsoft.png" alt="Microsoft" title="Microsoft" weight="50" height="50"
                                                         loading="lazy">
                                                     </li>
                                                     <li class="stack__item">
-                                                        <img class="stack__image" src="./icons/4373178_elementor_logo_logos_icon.png" alt="Elementor" title="Elementor" weight="40" height="40"
+                                                        <img class="stack__image" src="./icons/notion.png" alt="Notion" title="Notion" weight="40" height="40"
                                                         loading="lazy">
                                                     </li>
                                                     <li class="stack__item">
-                                                        <img class="stack__image" src="./icons/slider-revolution-logo.png" alt="Slider Revolution" title="Slider Revolution" weight="40" height="40"
+                                                        <img class="stack__image" src="./icons/slack.svg.png" alt="Slack" title="Slack" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/jira.png" alt="Jira" title="Jira" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/confluence.png" alt="Confluence" title="Confluence" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/miro.png" alt="Miro" title="Miro" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/chatgpt.svg" alt="ChatGPT" title="ChatGPT" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/klaviyo.svg" alt="Klaviyo" title="Klaviyo" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/wordpress.png" alt="WordPress" title="WordPress" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/elementor.png" alt="Elementor" title="Elementor" weight="40" height="40"
                                                         loading="lazy">
                                                     </li>
                                                 </ul>
@@ -413,29 +447,33 @@
                                     </li>
                                     <li class="experience__item grid-item">
                                         <article class="experience-card card card--hoverable">
-                                            <time class="experience-card__date" datetime="2024.04">April - August 2024
+                                            <time class="experience-card__date" datetime="2024.04">September 2024 - Present
                                             </time>
                                             <h3 class="experience-card__title">
-                                                <a href="https://www.tui.com" class="experience-card__title-link" target="_blank" title="Open the website in new tab">TUI</a>
+                                                <a href="https://www.amalyuldashev.com" class="experience-card__title-link" target="_blank" title="Open the website in new tab">Freelance</a>
                                             </h3>
                                             <div class="experience-card__position">
-                                                Manager
+                                                Frontend Developer
                                             </div>
                                             <div class="experience-card__description">
-                                                overseeing tennis programs, events, and guest training for all skill levels. Successfully managed equipment, promoted services, and built partnerships to enhance program quality and guest satisfaction. Led a team of instructors while ensuring high standards of customer service and operational efficiency.
+                                                I have mastered all the essential technologies for building web applications, including HTML, CSS, JavaScript, Wordpress as well as working with popular frameworks such as React and Vue.js. I have successfully developed several small projects from scratch, including websites and web applications. See my <a href="#portfolio" class="link-accent">portfolio</a>
                                             </div>
                                             <div class="stack">
                                                 <ul class="stack__list flow">
                                                     <li class="stack__item">
-                                                        <img class="stack__image" src="./icons/174881.png" alt="WordPress" title="WordPress" weight="40" height="40"
+                                                        <img class="stack__image" src="./icons/tui.png" alt="Tui booking kit" title="Tui booking kit" weight="40" height="40"
                                                         loading="lazy">
                                                     </li>
                                                     <li class="stack__item">
-                                                        <img class="stack__image" src="./icons/4373178_elementor_logo_logos_icon.png" alt="Elementor" title="Elementor" weight="40" height="40"
+                                                        <img class="stack__image" src="./icons/microsoft.png" alt="Microsoft" title="Microsoft" weight="40" height="40"
                                                         loading="lazy">
                                                     </li>
                                                     <li class="stack__item">
-                                                        <img class="stack__image" src="./icons/slider-revolution-logo.png" alt="Slider Revolution" title="Slider Revolution" weight="40" height="40"
+                                                        <img class="stack__image" src="./icons/Microsoft_365.svg.png" alt="Microsoft 365" title="Microsoft 365" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/notion.png" alt="Notion" title="Notion" weight="40" height="40"
                                                         loading="lazy">
                                                     </li>
                                                 </ul>
@@ -444,29 +482,33 @@
                                     </li>
                                     <li class="experience__item grid-item">
                                         <article class="experience-card card card--hoverable">
-                                            <time class="experience-card__date" datetime="2024.04">April - August 2024
+                                            <time class="experience-card__date" datetime="2024.04">March 2024
                                             </time>
                                             <h3 class="experience-card__title">
-                                                <a href="https://www.tui.com" class="experience-card__title-link" target="_blank" title="Open the website in new tab">TUI</a>
+                                                <a href="https://ame-creativeengineers.com" class="experience-card__title-link" target="_blank" title="Open the website in new tab">Âme creative engineers</a>
                                             </h3>
                                             <div class="experience-card__position">
-                                                Manager
+                                                Project Manager Trainee
                                             </div>
                                             <div class="experience-card__description">
-                                                overseeing tennis programs, events, and guest training for all skill levels. Successfully managed equipment, promoted services, and built partnerships to enhance program quality and guest satisfaction. Led a team of instructors while ensuring high standards of customer service and operational efficiency.
+                                                Overseeing tennis programs, events, and guest training for all skill levels. Successfully managed equipment, promoted services, and built partnerships to enhance program quality and guest satisfaction. Led a team of instructors while ensuring high standards of customer service and operational efficiency.
                                             </div>
                                             <div class="stack">
                                                 <ul class="stack__list flow">
                                                     <li class="stack__item">
-                                                        <img class="stack__image" src="./icons/174881.png" alt="WordPress" title="WordPress" weight="40" height="40"
+                                                        <img class="stack__image" src="./icons/tui.png" alt="Tui booking kit" title="Tui booking kit" weight="40" height="40"
                                                         loading="lazy">
                                                     </li>
                                                     <li class="stack__item">
-                                                        <img class="stack__image" src="./icons/4373178_elementor_logo_logos_icon.png" alt="Elementor" title="Elementor" weight="40" height="40"
+                                                        <img class="stack__image" src="./icons/microsoft.png" alt="Microsoft" title="Microsoft" weight="40" height="40"
                                                         loading="lazy">
                                                     </li>
                                                     <li class="stack__item">
-                                                        <img class="stack__image" src="./icons/slider-revolution-logo.png" alt="Slider Revolution" title="Slider Revolution" weight="40" height="40"
+                                                        <img class="stack__image" src="./icons/Microsoft_365.svg.png" alt="Microsoft 365" title="Microsoft 365" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/notion.png" alt="Notion" title="Notion" weight="40" height="40"
                                                         loading="lazy">
                                                     </li>
                                                 </ul>
@@ -475,16 +517,65 @@
                                     </li>
                                     <li class="experience__item grid-item">
                                         <article class="experience-card card card--hoverable">
-                                            <time class="experience-card__date" datetime="2024.04">April - August 2024
+                                            <time class="experience-card__date" datetime="2024.04">March 2024
                                             </time>
                                             <h3 class="experience-card__title">
-                                                <a href="https://www.tui.com" class="experience-card__title-link" target="_blank" title="Open the website in new tab">TUI</a>
+                                                <a href="https://ame-creativeengineers.com" class="experience-card__title-link" target="_blank" title="Open the website in new tab">Âme creative engineers</a>
                                             </h3>
                                             <div class="experience-card__position">
-                                                Manager
+                                                Project Manager Trainee
                                             </div>
                                             <div class="experience-card__description">
-                                                overseeing tennis programs, events, and guest training for all skill levels. Successfully managed equipment, promoted services, and built partnerships to enhance program quality and guest satisfaction. Led a team of instructors while ensuring high standards of customer service and operational efficiency.
+                                                Intensive full-time Trainee Creating a project environment and templates for future projects. Practical application of project management skills aimed at achieving objectives and effectively executing design projects.
+                                            </div>
+                                            <div class="stack">
+                                                <ul class="stack__list flow">
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/microsoft.png" alt="Microsoft" title="Microsoft" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/Microsoft_365.svg.png" alt="Microsoft" title="Microsoft" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/notion.png" alt="Notion" title="Notion" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/discord.png" alt="Discord AI" title="Discord AI" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                    <li class="stack__item">
+                                                        <img class="stack__image" src="./icons/google.webp" alt="Google Workspace" title="Google Workspace" weight="40" height="40"
+                                                        loading="lazy">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </article>
+                                    </li>
+                                    <li class="experience__item grid-item">
+                                        <article class="experience-card card card--hoverable">
+                                            <time class="experience-card__date" datetime="2024.04">February - March 2024
+                                            </time>
+                                            <h3 class="experience-card__title">
+                                                <a href="https://www.tui.com" class="experience-card__title-link" target="_blank" title="Open the website in new tab">Neue Fische</a>
+                                            </h3>
+                                            <div class="experience-card__position">
+                                                IT Project Manager Trainee
+                                            </div>
+                                            <div class="experience-card__description">
+                                                Intensive full-time bootcamp
+                                                180 hours of project management practice with the development of a project space including templates for future projects. Ready to apply acquired knowledge to achieve goals and successfully execute projects in the IT sector.
+                                                Training included:
+                                                Agile method,
+                                                Tools: Scrum, Kanban, Confluence, Slack & Miro,
+                                                Stakeholder Analysis,
+                                                Requirements engineering,
+                                                Risk management,
+                                                Engagement Plan,
+                                                Team leadership,
+                                                Project launch & control.
                                             </div>
                                             <div class="stack">
                                                 <ul class="stack__list flow">
@@ -510,11 +601,45 @@
                     </div>
                 </section>
             </div>
+            <div class="pop_up hiden">
+                <div class="pop_up_container">
+                    <div class="pop_up_body">
+                        <p>Feel free to reach out if you require expert web services</p>
+                        <form class="form grid-container" id="form" action="">
+                            <div class="textbox item1">
+                                <input class="input" id="fname" type="text" name="fname" placeholder="First name" enterkeyhint="go" required>
+                                <span class="asterix">*</span>
+                                <label for="fname">First name:</label>
+                            </div>
+                            <div class="textbox item2">
+                                <input class="input" id="lname" type="text" name="lname" placeholder="Last name" required>
+                                <span class="asterix">*</span>
+                                <label for="lname">Last name:</label>
+                            </div>
+                            <div class="textbox item3">
+                                <input class="input" id="email" type="email" name="email" placeholder="Email address" required>
+                                <span class="asterix">*</span>
+                                <label for="email">Email:</label>
+                            </div>
+                            <div class="textbox item4">
+                                <input class="input" id="phone" type="tel" name="tel" placeholder="Phone number">
+                                <label for="phone">Phone number:</label>
+                            </div>
+                            <div class="textbox item5">
+                                <textarea class="textarea" name="describtion" id="description" placeholder="Description" required></textarea>
+                                <span class="asterix">*</span>
+                            </div>
+                            <button class="submit button item6">Send message</button>
+                        </form>
+                        <div class="pop_up_close">&#10006</div>
+                    </div>
+                </div>
+            </div>
             <footer class="footer container" id="contact">
                 <div class="footer__inner card card--hoverable">
                     <div class="footer-left">
                         <h3 class="footer-title">Contact</h3>
-                        <div class="date">From 10.00 - 16.00</div>
+                        <div class="date">From 10am to 4pm</div>
                     </div>
                     <div class="footer-right">
                         <ul class="social-list flow">
