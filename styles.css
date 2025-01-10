@@ -638,7 +638,7 @@ h2, h3, h4, h5, h6 {
       from var(--a), 
       #000000, #000000, var(--color-accent)) 2;
   filter: blur(0.5em);
-  animation: a 2s linear infinite;
+  animation: a 6s linear infinite;
 }
 
 @keyframes a { to { --a: 1turn }}
@@ -663,6 +663,34 @@ h2, h3, h4, h5, h6 {
 .experience-card__title-link:hover {
   color: var(--color-accent);
 }
+
+.experience-card__title .icon {
+  position: absolute;
+  padding-inline: 10px;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.experience-card__title-link:hover ~ .icon {
+  color: var(--color-accent);
+  animation: pulse 1s infinite ease-in-out alternate;
+  transition: color var(--transition-duration);
+}
+
+.icon {
+  animation: none;
+  transition: transform 0.5s ease, color var(--transition-duration);
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
 
 @media (max-width: 48rem) {
   .portfolio-wrapper-image {
@@ -726,7 +754,7 @@ h2, h3, h4, h5, h6 {
       from var(--a), 
       #000000, #000000, var(--color-accent)) 2;
   filter: blur(0.5em);
-  animation: a 2s linear infinite;
+  animation: a 6s linear infinite;
 }
 
 .experience__item {
