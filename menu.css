@@ -35,20 +35,20 @@
   width: 100%;
   height: 48px;
   text-decoration: none;
-  font-family: var(--font-family-accent);
-  font-weight: var(--font-weight-accent);
+  font-family: var(--font-family-base);
+  font-weight: 500;
   font-size: max(1vw, 14px);
   letter-spacing: 1.2px;
   white-space: nowrap;
 }
 
 .header-menu-link:hover {
-  color: #ff6900;
+  color: var(--color-accent);
 }
 
 .header-menu-link:focus {
   outline: none;
-  color: #ff6900;
+  color: var(--color-accent);
 }
 
 .header-menu-list {
