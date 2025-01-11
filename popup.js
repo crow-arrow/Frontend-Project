@@ -1,8 +1,7 @@
 const openButton = document.querySelector('#open_pop_up');
 const popup = document.querySelector('.pop_up');
 const popupBody = document.querySelector('.pop_up_body');
-const closeButton = document.querySelector('.pop_up_close'); 
-const downloadButton = document.querySelector('#downloadCV');
+const closeButton = document.querySelector('.pop_up_close');
 const form = document.getElementById('form');
 
 openButton.addEventListener('click', (event) => {
@@ -25,13 +24,6 @@ closeButton.addEventListener('click', () => {
             asterix.style.animation = 'none';
         }
     });
-});
-
-downloadButton.addEventListener('click', () => {
-    const link = document.createElement('a');
-    link.href = './images/pdf/Lebenslauf.pdf';
-    link.download = 'Lebenslauf.pdf';
-    link.click();
 });
 
 form.addEventListener('submit', function(e) {
