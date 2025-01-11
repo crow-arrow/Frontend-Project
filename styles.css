@@ -664,14 +664,16 @@ h2, h3, h4, h5, h6 {
   color: var(--color-accent);
 }
 
-.experience-card__title .icon {
+.experience-card__title .icon,
+.portfolio-card__title .icon {
   position: absolute;
   padding-inline: 10px;
   font-size: 14px;
   pointer-events: none;
 }
 
-.experience-card__title-link:hover ~ .icon {
+.experience-card__title-link:hover ~ .icon,
+.portfolio-card__title-link:hover ~ .icon {
   color: var(--color-accent);
   animation: pulse 1s infinite ease-in-out alternate;
   transition: color var(--transition-duration);
