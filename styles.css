@@ -645,18 +645,29 @@ h2, h3, h4, h5, h6 {
 
 /* Test */
 
-.portfolio-wrapper-image {
-  object-fit: cover;
-  object-position: top left;
+.portfolio-wrapper {
   height: 320px;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+  transition: var(--transition-duration);
+  overflow: hidden;
+  max-width: max-content;
+  width: 100%;
+}
+
+.portfolio-wrapper:hover {
+  box-shadow: none;
+}
+
+.portfolio-wrapper-image {
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--border-radius);
   transition: var(--transition-duration);
 }
 
 .portfolio-wrapper-image:hover {
   scale: 110%;
-  box-shadow: none;
 }
 
 .portfolio-card__title-link:hover,
