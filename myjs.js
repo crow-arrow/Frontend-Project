@@ -3,35 +3,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Функция для проверки, является ли устройство сенсорным
   const isTouchDevice = () => {
-      return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   };
 
   // Если устройство не сенсорное, добавляем анимацию
   if (!isTouchDevice()) {
-      document.querySelectorAll(".portfolio-card").forEach((item) => {
-          const tl = gsap.timeline({
-              scrollTrigger: {
-                  trigger: item,
-                  start: "center 85%",
-                  end: "center 20%",
-                  scrub: true,
-                  invalidateOnRefresh: true,
-              },
-          });
-
-          tl.to(item, {
-              scale: 1.1,
-              ease: "none",
-          }).to(item, {
-              scale: 1.0,
-              ease: "none",
-          });
+    document.querySelectorAll(".portfolio-card").forEach((item) => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: item,
+            start: "center 85%",
+            end: "center 20%",
+            scrub: true,
+            invalidateOnRefresh: true,
+        },
       });
-  }
 
-  // Создание ScrollTrigger для анимации градиента
-  document.querySelectorAll(".portfolio-card").forEach((item) => {
-      ScrollTrigger.create({
+      tl.to(item, {
+          scale: 1.1,
+          ease: "none",
+      }).to(item, {
+          scale: 1.0,
+          ease: "none",
+      });
+
+      document.querySelectorAll(".portfolio-card").forEach((item) => {
+        ScrollTrigger.create({
           trigger: item,
           start: "center 80%",
           end: "center 25%",
@@ -39,8 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
           onEnterBack: () => item.classList.add("animate-gradient"),
           onLeave: () => item.classList.remove("animate-gradient"),
           onLeaveBack: () => item.classList.remove("animate-gradient"),
+        });
       });
-  });
+    });
+  }
 });
 
 // Header
@@ -56,9 +55,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Nav Menu
-
-// Получаем все элементы
+// Menu
 const menuLinks = document.querySelectorAll('.header-menu-link');
 const sections = document.querySelectorAll('section');
 
@@ -95,21 +92,16 @@ function updateActiveState(sectionId) {
 
 // Смена темы
 const toggleTheme = () => {
-  const htmlElement = document.documentElement; // Получаем элемент <html>
-  const isDarkMode = htmlElement.classList.contains('darkmode'); // Проверяем, активна ли темная тема
-
-  // Переключаем класс .darkmode
+  const htmlElement = document.documentElement;
+  const isDarkMode = htmlElement.classList.contains('darkmode');
   if (isDarkMode) {
       htmlElement.classList.remove('darkmode');
   } else {
       htmlElement.classList.add('darkmode');
   }
-
-  // Сохраняем выбранную тему в localStorage
   localStorage.setItem('theme', isDarkMode ? 'light' : 'dark');
 };
 
-// Восстанавливаем выбранную тему при загрузке страницы
 const savedTheme = localStorage.getItem('theme') || 'light';
 if (savedTheme === 'dark') {
   document.documentElement.classList.add('darkmode');

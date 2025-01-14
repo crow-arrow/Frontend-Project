@@ -153,7 +153,7 @@ table {
 
 .darkmode {
   --color-background: #eaeaea;
-  --color-input: #eaeaea;
+  --color-input: #ffffff;
   --color-text: #001d26;
   --color-white: #ffffff;
   --c-dark-for-shadow: #000;
@@ -495,14 +495,12 @@ h2, h3, h4, h5, h6 {
   display: none;
 }
 
-/* Показываем dark_mode при светлой теме (без класса .darkmode) */
 html:not(.darkmode) #theme-switch .material-symbols-outlined:nth-child(1) {
-  display: block; /* Показываем dark_mode при светлой теме */
+  display: block;
 }
 
-/* Показываем light_mode при темной теме (с классом .darkmode) */
 html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
-  display: block; /* Показываем light_mode при темной теме */
+  display: block;
 }
 
 .header-button {
@@ -525,11 +523,6 @@ html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
 .header-button-link:hover {
   color: var(--color-accent);
 }
-
-/* .header-button:hover {
-  box-shadow: var(--box-shadow-inset-2);
-  background-color: var(--color-background);
-} */
 
 .header-burger-button {
   display: inline-flex;
@@ -670,7 +663,12 @@ html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
   grid-template-columns: auto 50%;
   position: relative;
   overflow: hidden;
-  border: 10px solid transparent;
+}
+
+@media (max-width: 48rem) {
+  .portfolio-card {
+    box-shadow: var(--box-shadow);
+  }
 }
 
 .animate-gradient{
@@ -706,8 +704,19 @@ html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
   width: 100%;
 }
 
-.portfolio-wrapper:hover {
-  box-shadow: none;
+@media (max-width: 48rem) {
+  .portfolio-wrapper {
+    height: 200px;
+  }
+}
+
+@media (hover:hover) {
+  .portfolio-wrapper:hover {
+    box-shadow: none;
+  }
+  .portfolio-wrapper-image:hover {
+    scale: 110%;
+  }
 }
 
 .portfolio-wrapper-image {
@@ -715,10 +724,6 @@ html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
   object-position: top center;
   border-radius: var(--border-radius);
   transition: var(--transition-duration);
-}
-
-.portfolio-wrapper-image:hover {
-  scale: 110%;
 }
 
 .portfolio-card__title-link:hover,
@@ -734,11 +739,13 @@ html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
   pointer-events: none;
 }
 
-.experience-card__title-link:hover ~ .icon,
-.portfolio-card__title-link:hover ~ .icon {
-  color: var(--color-accent);
-  animation: pulse 1s infinite ease-in-out alternate;
-  transition: color var(--transition-duration);
+@media (hover:hover) {
+  .experience-card__title-link:hover ~ .icon,
+  .portfolio-card__title-link:hover ~ .icon {
+    color: var(--color-accent);
+    animation: pulse 1s infinite ease-in-out alternate;
+    transition: color var(--transition-duration);
+  }
 }
 
 .icon {
@@ -799,26 +806,27 @@ html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
   transform: translateY(-50%); */
 }
 
-.card--hoverable:hover {
-  box-shadow: none;
+@media (hover:hover) {
+  .card--hoverable:hover {
+    box-shadow: none;
+  }
+  .card--hoverable:hover::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    inset: 0;
+    border: solid 0.5em;
+    border-image: 
+      conic-gradient(
+        from var(--a), 
+        var(--color-animate-border), var(--color-animate-border), var(--color-accent)) 2;
+    filter: blur(0.5em);
+    animation: a 6s linear infinite;
+  }
 }
 
 .card--hoverable::before {
   transition-duration: 0.3s;
-}
-
-.card--hoverable:hover::before {
-  position: absolute;
-  content: "";
-  z-index: -1;
-  inset: 0;
-  border: solid 0.5em;
-  border-image: 
-    conic-gradient(
-      from var(--a), 
-      var(--color-animate-border), var(--color-animate-border), var(--color-accent)) 2;
-  filter: blur(0.5em);
-  animation: a 6s linear infinite;
 }
 
 .experience__item {

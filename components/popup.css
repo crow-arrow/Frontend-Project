@@ -43,15 +43,7 @@
     padding: 10px 20px;
     border-radius: var(--border-radius-button);
     background-color: var(--color-input);
-    color: var(--color-white);
-}
-
-.textbox :is(input, textarea):valid:not(:placeholder-shown) {
-    border: 1px solid #26dfae;
-}
-
-.textbox :is(input, textarea):invalid:not(:placeholder-shown) {
-    border: 1px solid #df2666;
+    color: var(--color-text);
 }
 
 .textbox .asterix {
@@ -64,25 +56,17 @@
     opacity: 0;
 }
 
-.textbox :is(input, textarea):invalid:not(:placeholder-shown) ~ .asterix {
-    opacity: 1;
-    animation: shake 0.3s 0s 3;
-}
-
 .textbox :is(input, textarea):valid:not(:placeholder-shown) {
+    border: 1px solid #26dfae;
     animation: none;
 }
 
 .textbox :is(input, textarea):invalid:not(:placeholder-shown) {
-    animation: shake 0.3s 0s 3;
-}
-
-.form-submitted .textbox :is(input, textarea):invalid {
     border: 1px solid #df2666;
     animation: shake 0.3s 0s 3;
 }
 
-.form-submitted .textbox :is(input, textarea):invalid ~ .asterix {
+.textbox :is(input, textarea):invalid:not(:placeholder-shown) ~ .asterix {
     opacity: 1;
     animation: shake 0.3s 0s 3;
 }
