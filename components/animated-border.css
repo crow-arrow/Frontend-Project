@@ -54,15 +54,15 @@
   border-radius: inherit; /* Наследуем скругление углов */
   background: conic-gradient(
     from var(--a),
-    #000000, #000000, #000000, #ff6900,
-    #000000, #000000, #000000, #ff6900, #000000
+    transparent, transparent, transparent, #ff6900,
+    transparent, transparent, transparent, #ff6900, transparent
   );
   animation: rotate 6s linear infinite;
 
   /* Создаем эффект рамки с прозрачностью внутри */
   -webkit-mask: 
-    linear-gradient(var(--color-dark) 0 0) content-box, 
-    linear-gradient(var(--color-dark) 0 0);
+    linear-gradient(var(--color-background) 0 0) content-box, 
+    linear-gradient(var(--color-background) 0 0);
   -webkit-mask-composite: xor; /* Вырезаем внутреннюю часть */
   mask-composite: exclude;
   padding: 0.2em; /* Толщина рамки */

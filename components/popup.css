@@ -24,7 +24,7 @@
     align-items: center;
     margin: auto;
     width: 600px;
-    background-color: var(--color-dark);
+    background-color: var(--color-background);
     border-radius: var(--border-radius);
     padding: 50px;
 }
@@ -42,7 +42,7 @@
 .textbox :is(input, textarea) {
     padding: 10px 20px;
     border-radius: var(--border-radius-button);
-    background-color: var(--color-olive);
+    background-color: var(--color-input);
     color: var(--color-white);
 }
 
@@ -130,7 +130,7 @@
     align-items: center;
     width: 50%;
     margin: 0 auto;
-    color: var(--color-light);
+    color: var(--color-text);
     background-color: var(--color-accent);
 }
 
@@ -169,7 +169,7 @@
     right: 2vh;
     border-radius: 50%;
     text-align: center;
-    color: var(--color-light);
+    color: var(--color-text);
     cursor: pointer;
     transition-duration: var(--transition-duration);
 }
