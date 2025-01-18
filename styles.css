@@ -793,6 +793,7 @@ html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
 
 .experience__list {
   position: relative;
+  z-index: 0;
 }
 
 .experience__list::before {
@@ -802,6 +803,7 @@ html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
   right: calc(100% + var(--circleSize)*1.5);
   width: 1px;
   height: 100%;
+
   /* top: 50%;
   transform: translateY(-50%); */
 }

@@ -3,8 +3,10 @@ require('dotenv').config();
 const nodemailer = require('nodemailer');
 const express = require('express');
 const bodyParser = require('body-parser');
+
 const app = express();
-const PORT = process.env.PORT || 443;
+// const PORT = process.env.PORT || 443;
+const PORT = process.env.PORT || 5500;
 
 // Мидлвэр для парсинга JSON
 app.use(bodyParser.json());
@@ -23,7 +25,7 @@ app.post('/send', async (req, res) => {
 
     try {
         await transporter.sendMail({
-            from: `${email}`,
+            from: `"${fname} ${lname}" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_USER,
             subject: 'New job enquiry',
             text: `
@@ -41,6 +43,11 @@ Email: ${email}
 });
 
 // Запуск сервера на порту 3000
+
+// app.listen(PORT, () => {
+//     console.log(`Server is running on ${process.env.PORT || 'http://localhost:443'}`);
+// });
+
 app.listen(PORT, () => {
-    console.log(`Server is running on ${process.env.PORT || 'http://localhost:443'}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
