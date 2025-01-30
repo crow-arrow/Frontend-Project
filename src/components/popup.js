@@ -54,3 +54,28 @@ document.querySelectorAll('.textbox input, .textbox textarea').forEach(input => 
         }
     });
 });
+
+
+app.post('/send', async (req, res) => {
+    console.log(req.body); // Выводим данные в консоль для проверки
+
+    const { fname, lname, email, tel, description } = req.body;
+
+    try {
+        await transporter.sendMail({
+            from: `"${fname} ${lname}" <${process.env.EMAIL_USER}>`,
+            to: process.env.EMAIL_USER,
+            subject: 'New job enquiry',
+            text: `
+Имя: ${fname} ${lname}
+Email: ${email}
+Телефон: ${tel || 'Null'}
+Описание: ${description}`,
+        });
+
+        res.send('The message was sent successfully');
+    } catch (error) {
+        console.error('Submit error:', error);
+        res.status(500).send('Submit error.');
+    }
+});

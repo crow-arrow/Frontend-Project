@@ -22,7 +22,6 @@
         <link rel="stylesheet" href="dist/styles.css">
 
         <script src="./src/myjs.js" defer></script>
-        <script src="./src/components/popup.js" defer></script>
     </head>
     <body>
         <header class="header">
@@ -744,36 +743,41 @@
                 <div class="pop_up_container">
                     <div class="pop_up_body">
                         <p>Feel free to reach out if you require expert web services</p>
-                        <form class="form grid-container" id="form" action="http://amalyuldashev.online/send" method="POST">
+                        <form class="form grid-container" id="form" action="https://amalyuldashev.online/send" method="POST">
                             <div class="textbox item1">
                                 <label for="fname">First name:</label>
-                                <input class="input" id="fname" type="text" name="fname" placeholder="First name" enterkeyhint="go" required>
+                                <input class="input" id="fname" type="text" name="fname" placeholder="First name" autocomplete="given-name" enterkeyhint="go" required>
                                 <span class="asterix">*</span>
                             </div>
                             <div class="textbox item2">
                                 <label for="lname">Last name:</label>
-                                <input class="input" id="lname" type="text" name="lname" placeholder="Last name" required>
+                                <input class="input" id="lname" type="text" name="lname" placeholder="Last name" autocomplete="family-name" required>
                                 <span class="asterix">*</span>
                             </div>
                             <div class="textbox item3">
                                 <label for="email">Email:</label>
-                                <input class="input" id="email" type="email" name="email" placeholder="Email address" required>
+                                <input class="input" id="email" type="email" name="email" placeholder="Email address" autocomplete="email" required>
                                 <span class="asterix">*</span>
                             </div>
                             <div class="textbox item4">
                                 <label for="phone">Phone number:</label>
-                                <input class="input" id="phone" type="tel" name="tel" placeholder="Phone number">
+                                <input class="input" id="phone" type="tel" name="tel" placeholder="Phone number" autocomplete="tel">
                             </div>
                             <div class="textbox item5">
                                 <label for="description">Description</label>
-                                <textarea class="textarea" name="describtion" id="description" placeholder="Description" required></textarea>
+                                <textarea class="textarea" name="description" id="description" placeholder="Description" required></textarea>
                                 <span class="asterix">*</span>
                             </div>
-                            <button class="submit button item6">Send message</button>
+                            <button type="submit" class="submit button item6">Send message</button>
                         </form>
-                        <div class="pop_up_close">&#10006</div>
+                        <div class="pop_up_close">
+                            <span class="material-symbols-outlined">Close</span>
+                        </div>
                     </div>
                 </div>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+                <script src="./src/components/popup.js"></script>
             </div>
             <footer class="footer container" id="contact">
                 <div class="footer__inner card card--hoverable">

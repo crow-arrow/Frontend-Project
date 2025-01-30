@@ -20,7 +20,9 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/send', async (req, res) => {
-    const { fname, lname, email, tel, describtion } = req.body;
+    console.log(req.body);
+    
+    const { fname, lname, email, tel, description } = req.body;
 
     try {
         await transporter.sendMail({
@@ -31,7 +33,7 @@ app.post('/send', async (req, res) => {
 Имя: ${fname} ${lname}
 Email: ${email}
 Телефон: ${tel || 'Null'}
-Описание: ${describtion}`,
+Описание: ${description}`,
         });
 
         res.send('The message was sent successfully');
