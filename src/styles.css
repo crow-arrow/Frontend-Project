@@ -1,6 +1,6 @@
 @font-face {
   font-family:  "Rubik";
-  src: url(./fonts/Rubik-Light.woff2) format('woff2');
+  src: url(../fonts/Rubik-Light.woff2) format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap; 
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Rubik';
-  src: url(./fonts/Rubik-Bold.woff2) format('woff2');
+  src: url(../fonts/Rubik-Bold.woff2) format('woff2');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'M PLUS Code Latin';
-  src: url(./fonts/MPLUSCodeLatin-Thin.woff2) format('woff2');
+  src: url(../fonts/MPLUSCodeLatin-Thin.woff2) format('woff2');
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -24,14 +24,14 @@
 
 @font-face {
   font-family: 'M PLUS Code Latin';
-  src: url(./fonts/MPLUSCodeLatin-Light.woff2) format('woff2');
+  src: url(../fonts/MPLUSCodeLatin-Light.woff2) format('woff2');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Material Symbols Outlined 28pt';
-  src: url('./fonts/MaterialSymbolsOutlined28pt-Regular.woff2') format('woff2');
+  src: url(../fonts/MaterialSymbolsOutlined28pt-Regular.woff2) format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -131,6 +131,10 @@ table {
 
   --input-height: 54px;
 
+  --bar-width: 20px;
+  --bar-height: 2px;
+  --hamburger-gap: 4px;
+
   --container-width: 1220px;
   --container-padding-x: 20px;
 
@@ -140,6 +144,7 @@ table {
   --gridPadding: 15px;
     
   --transition-duration: 0.3s;
+  --transition-burger: all .8s cubic-bezier(.645, .045, .355, 1);
 
   --box-shadow: -4px -4px 12px hsla(0, 0%, 100%, .05), 4px 4px 12px var(--c-dark-for-shadow);
   --box-shadow-transparent: -4px -4px 12px hsla(0, 0%, 100%, 0), 4px 4px 12px transparent;
@@ -488,11 +493,19 @@ h2, h3, h4, h5, h6 {
   background-color: var(--color-background);
   color: var(--color-text);
   font-size: 30px;
-  animation: rotate 1s ease-in-out;
+  
 }
 
 #theme-switch .icon {
   display: none;
+  animation: rotate 1s ease-in-out;
+  /* transition: var(--transition-burger); */
+}
+
+@media (max-width: 48rem) {
+  .header-actions {
+    order: -1;
+  }
 }
 
 html:not(.darkmode) #theme-switch .material-symbols-outlined:nth-child(1) {
@@ -524,15 +537,174 @@ html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
   color: var(--color-accent);
 }
 
+/* Hamburger Menu */
+
+label {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.menu--3 input {
+  display: none;
+}
+
+.hamburger-svg path {
+  fill: none;
+  stroke: var(--color-text);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  --length: 24;
+  --offset: -38;
+  stroke-dasharray: var(--length) var(--total-length);
+  stroke-dashoffset: var(--offset);
+  transition: var(--transition-burger)
+}
+
+.back input:checked+svg {
+  .line--1,
+  .line--3 {
+    --length: 8.602325267;
+  }
+}
+
+.menu--3 {
+  background-color: #00aef6;
+  .line--1,
+  .line--3 {
+    --total-length: 126.38166809082031;
+  }
+  .line--2 {
+    --total-length: 80;
+  }
+  input:checked+svg {
+    .line--1,
+    .line--3 {
+      --offset: -109.1770175568;
+    }
+  }
+}
+
+.menu--3 input:checked+svg {
+  transform: scale(1.5) rotate(90deg);
+  transform-origin: center;
+  transition: var(--transition-burger)
+}
+.menu--3 svg {
+  transform: scale(1.5);
+  transform-origin: center;
+  transition: var(--transition-burger)
+}
+
+/* Menu */
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: absolute;
+  top: 60px;
+  opacity: 0;
+  list-style: none;
+  transform: translateY(-20px);
+  transition-duration: var(--transition-burger);
+}
+
+.menu-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  width: 100%;
+  height: 38px;
+}
+
+.mobile-menu-item {
+  opacity: 0;
+  z-index: -100;
+  transform: translateY(-100%);
+  transition: var(--transition-burger);
+}
+
+/* Когда чекбокс выбран, показываем меню с анимацией */
+.menu-open:checked ~ .menu-items {
+  opacity: 1;
+  transform: translateY(0); /* Меню появляется слайдом */
+}
+
+.menu-open:checked ~ .menu-items .mobile-menu-item {
+  display: flex;
+  background: var(--color-background);
+  opacity: 1;
+  transform: translateY(0); /* Пункты меню появляются слайдом */
+  transition: transform 0.8s ease, opacity 1s ease;
+}
+
+/* Задержка для анимации появления каждого пункта меню */
+.menu-open:checked ~ .menu-items .mobile-menu-item:nth-child(1) {
+  transition-delay: 0.3s;
+  transform: translate3d(0, 40px, 0); /* Смещение вниз */
+}
+.menu-open:checked ~ .menu-items .mobile-menu-item:nth-child(2) {
+  transition-delay: 0.5s;
+  transform: translate3d(0, 60px, 0); /* Смещение вниз */
+}
+.menu-open:checked ~ .menu-items .mobile-menu-item:nth-child(3) {
+  transition-delay: 0.7s;
+  transform: translate3d(0, 80px, 0); /* Смещение вниз */
+}
+.menu-open:checked ~ .menu-items .mobile-menu-item:nth-child(4) {
+  transition-delay: 0.9s;
+  transform: translate3d(0, 100px, 0); /* Смещение вниз */
+}
+
+/* Когда чекбокс не выбран, скрываем меню с анимацией (обратная анимация) */
+.menu-open:not(:checked) ~ .menu-items {
+  opacity: 0;
+  transform: translateY(-100%); /* Меню уходит вверх */
+  transition: transform 0.8s ease, opacity 1s ease;
+}
+
+.menu-open:not(:checked) ~ .menu-items .mobile-menu-item {
+  opacity: 0;
+  transform: translateY(-20px); /* Пункты меню исчезают */
+  transition: transform 0.8s ease, opacity 1s ease;
+}
+
+/* Задержка для обратной анимации исчезновения каждого пункта меню */
+.menu-open:not(:checked) ~ .menu-items .mobile-menu-item:nth-child(1) {
+  transition-delay: 0.9s; 
+  transform: translate3d(0, -40px, 0); /* Смещение вверх */
+}
+.menu-open:not(:checked) ~ .menu-items .mobile-menu-item:nth-child(2) {
+  transition-delay: 0.7s;
+  transform: translate3d(0, -60px, 0); /* Смещение вверх */
+}
+.menu-open:not(:checked) ~ .menu-items .mobile-menu-item:nth-child(3) {
+  transition-delay: 0.5s;
+  transform: translate3d(0, -80px, 0); /* Смещение вверх */
+}
+.menu-open:not(:checked) ~ .menu-items .mobile-menu-item:nth-child(4) {
+  transition-delay: 0.3s;
+  transform: translate3d(0, -100px, 0); /* Смещение вверх */
+}
+
+
+
 .header-burger-button {
   display: inline-flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   width: 48px;
   color: var(--color-text);
   background-color: transparent;
-  border: var(--border);
-  padding: 1em;
+  padding: 0;
 }
 
 .header-burger-button:hover {
@@ -672,7 +844,7 @@ html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
 }
 
 .animate-gradient{
-  border-radius: 40px;
+  z-index: 0;
 }
 
 .animate-gradient::before {
@@ -681,7 +853,6 @@ html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
   z-index: -1;
   inset: 0;
   border: solid 0.5em;
-  border-radius: 30px;
   border-image: 
     conic-gradient(
       from var(--a), 
@@ -724,6 +895,9 @@ html.darkmode #theme-switch .material-symbols-outlined:nth-child(2) {
   object-position: top center;
   border-radius: var(--border-radius);
   transition: var(--transition-duration);
+}
+.comingsoon {
+  object-position: center center;
 }
 
 .portfolio-card__title-link:hover,
