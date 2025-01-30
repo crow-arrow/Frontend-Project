@@ -5,8 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-// const PORT = process.env.PORT || 443;
-const PORT = process.env.PORT || 5500;
+const PORT = process.env.PORT || 443;
 
 // Мидлвэр для парсинга JSON
 app.use(bodyParser.json());
@@ -42,12 +41,6 @@ Email: ${email}
     }
 });
 
-// Запуск сервера на порту 3000
-
-// app.listen(PORT, () => {
-//     console.log(`Server is running on ${process.env.PORT || 'http://localhost:443'}`);
-// });
-
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
