@@ -55,27 +55,37 @@ document.querySelectorAll('.textbox input, .textbox textarea').forEach(input => 
     });
 });
 
+// Асинхронная отправка формы с помощью fetch
+form.addEventListener('submit', (event) => {
+    event.preventDefault();  // Предотвращаем перезагрузку страницы
 
-app.post('/send', async (req, res) => {
-    console.log(req.body); // Выводим данные в консоль для проверки
+    const formData = new FormData(form);
 
-    const { fname, lname, email, tel, description } = req.body;
-
-    try {
-        await transporter.sendMail({
-            from: `"${fname} ${lname}" <${process.env.EMAIL_USER}>`,
-            to: process.env.EMAIL_USER,
-            subject: 'New job enquiry',
-            text: `
-Имя: ${fname} ${lname}
-Email: ${email}
-Телефон: ${tel || 'Null'}
-Описание: ${description}`,
-        });
-
-        res.send('The message was sent successfully');
-    } catch (error) {
-        console.error('Submit error:', error);
-        res.status(500).send('Submit error.');
-    }
+    fetch('/send', {  // Путь к серверу без указания домена, так как всё на одном домене
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            Toastify({
+                text: "Message sent successfully!",
+                duration: 3000,
+                backgroundColor: "#4CAF50",
+            }).showToast();
+            form.reset();  // Очистить форму
+        } else {
+            Toastify({
+                text: "There was an error sending the message.",
+                duration: 3000,
+                backgroundColor: "#f44336",
+            }).showToast();
+        }
+    })
+    .catch(error => {
+        Toastify({
+            text: "There was an error sending the message.",
+            duration: 3000,
+            backgroundColor: "#f44336",
+        }).showToast();
+    });
 });

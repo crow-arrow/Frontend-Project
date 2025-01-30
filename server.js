@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 const nodemailer = require('nodemailer');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -19,9 +18,10 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+// Обработчик формы отправки данных
 app.post('/send', async (req, res) => {
-    console.log(req.body);
-    
+    console.log(req.body);  // Проверяем данные, которые пришли на сервер
+
     const { fname, lname, email, tel, description } = req.body;
 
     try {
@@ -43,6 +43,7 @@ Email: ${email}
     }
 });
 
+// Запуск сервера
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
