@@ -36,7 +36,7 @@ Email: ${email}
 Описание: ${description}`,
         });
 
-        res.send('The message was sent successfully');
+        res.send('Message sent successfully');
     } catch (error) {
         console.error('Submit error:', error);
         res.status(500).send('Submit error.');
