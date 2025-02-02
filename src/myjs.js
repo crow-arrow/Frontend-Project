@@ -144,3 +144,10 @@ function closeMenu(event) {
 // Добавляем слушатели событий
 circle.addEventListener('click', openMenu, false);
 win.addEventListener('click', closeMenu, false);
+
+function setMenuHeight() {
+  document.querySelector('.material-content').style.height = `${window.innerHeight}px`;
+}
+
+window.addEventListener('resize', setMenuHeight);
+window.addEventListener('load', setMenuHeight);
