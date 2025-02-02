@@ -108,3 +108,38 @@ if (savedTheme === 'dark') {
 }
 
 document.querySelector('#theme-switch').addEventListener('click', toggleTheme);
+
+var circle = document.querySelector('.material-btn');
+var links = document.querySelectorAll('.material-content li');
+var ham = document.querySelector('.material-hamburger');
+var main = document.querySelector('main');
+var content = document.querySelector('.material-content');
+var win = window;
+
+function openMenu(event) {
+  event.preventDefault();
+  event.stopPropagation(); // Останавливаем всплытие
+
+  circle.classList.toggle('active');
+  ham.classList.toggle('material-close');
+  main.classList.toggle('active');
+  content.classList.toggle('active');
+
+  links.forEach(link => link.classList.toggle('active'));
+}
+
+// Закрытие меню только если клик не по нему
+function closeMenu(event) {
+  if (!content.contains(event.target) && !circle.contains(event.target)) {
+    circle.classList.remove('active');
+    ham.classList.remove('material-close');
+    main.classList.remove('active');
+    content.classList.remove('active');
+
+    links.forEach(link => link.classList.remove('active'));
+  }
+}
+
+// Добавляем слушатели событий
+circle.addEventListener('click', openMenu, false);
+win.addEventListener('click', closeMenu, false);
