@@ -115,6 +115,7 @@ var ham = document.querySelector('.material-hamburger');
 var main = document.querySelector('main');
 var content = document.querySelector('.material-content');
 var win = window;
+var menuItems = document.querySelector('.menu-open.menu-items');  // Область, по которой не будет закрываться меню
 
 function openMenu(event) {
   event.preventDefault();
@@ -128,9 +129,9 @@ function openMenu(event) {
   links.forEach(link => link.classList.toggle('active'));
 }
 
-// Закрытие меню только если клик не по нему
+// Закрытие меню только если клик не по нему и не по menuItems
 function closeMenu(event) {
-  if (!content.contains(event.target) && !circle.contains(event.target)) {
+  if (!circle.contains(event.target) && !menuItems.contains(event.target)) {
     circle.classList.remove('active');
     ham.classList.remove('material-close');
     main.classList.remove('active');
